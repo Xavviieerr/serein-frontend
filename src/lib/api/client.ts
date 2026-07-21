@@ -4,7 +4,10 @@ if (!API_URL) {
 	throw new Error("NEXT_PUBLIC_API_URL is not defined");
 }
 
-export async function apiClient(endpoint: string, options?: RequestInit) {
+export async function apiClient<T>(
+	endpoint: string,
+	options?: RequestInit,
+): Promise<T> {
 	const response = await fetch(`${API_URL}${endpoint}`, {
 		headers: {
 			"Content-Type": "application/json",

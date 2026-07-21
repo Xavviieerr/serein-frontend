@@ -1,5 +1,9 @@
 import { apiClient } from "./client";
 
+interface HealthResponse {
+	status: string;
+}
+
 export function checkApiHealth() {
-	return apiClient("/health");
+	return apiClient<HealthResponse>("/health");
 }
